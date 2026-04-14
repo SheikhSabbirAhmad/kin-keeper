@@ -13,7 +13,7 @@ const Navbar = () => {
   const getClass = (path) =>
     pathname === path
       ? "btn btn-sm bg-[#244D3F] text-white border-none"
-      : "btn btn-ghost btn-sm text-gray-500";
+      : "btn btn-ghost btn-sm text-gray-500 hover:scale-110 transition";
 
   return (
     <div className="navbar bg-base-500 px-6">
@@ -21,7 +21,7 @@ const Navbar = () => {
       {/* Left side */}
       <div className="flex-1">
         <Link href="/" className="text-2xl font-bold text-[#08172c]">
-          Keen<span className="text-[#244D3F]">Keeper</span>
+          Keen<span className="text-[#244D3F] font-semibold">Keeper</span>
         </Link>
       </div>
 

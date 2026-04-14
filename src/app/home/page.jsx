@@ -25,22 +25,22 @@ const HomePage = () => {
       {/* Stats Section */}
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-5xl">
         
-        <div className="bg-white shadow-sm rounded-xl p-6 text-center">
+        <div className="bg-white shadow-sm rounded-lg p-6 text-center">
           <h2 className="text-2xl font-bold text-[#244D3F]">10</h2>
           <p className="text-gray-500 mt-1 text-sm">Total Friends</p>
         </div>
 
-        <div className="bg-white shadow-sm rounded-xl p-6 text-center">
+        <div className="bg-white shadow-sm rounded-lg p-6 text-center">
           <h2 className="text-2xl font-bold text-[#244D3F]">3</h2>
           <p className="text-gray-500 mt-1 text-sm">On Track</p>
         </div>
 
-        <div className="bg-white shadow-sm rounded-xl p-6 text-center">
+        <div className="bg-white shadow-sm rounded-lg p-6 text-center">
           <h2 className="text-2xl font-bold text-[#244D3F]">6</h2>
           <p className="text-gray-500 mt-1 text-sm">Need Attention</p>
         </div>
 
-        <div className="bg-white shadow-sm rounded-xl p-6 text-center">
+        <div className="bg-white shadow-sm rounded-lg p-6 text-center">
           <h2 className="text-2xl font-bold text-[#244D3F]">12</h2>
           <p className="text-gray-500 mt-1 text-sm">Interactions This Month</p>
         </div>
