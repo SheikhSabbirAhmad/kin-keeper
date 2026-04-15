@@ -4,6 +4,7 @@ const TimeLinePage = () => {
     return (
         <div>
             <h2>This is time line page</h2>
+            <button className='btn btn-primary'>Click</button>
         </div>
     );
 };

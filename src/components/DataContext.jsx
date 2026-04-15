@@ -6,15 +6,29 @@ export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   const [friends, setFriends] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/friends.json")
-      .then(res => res.json())
-      .then(data => setFriends(data));
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+
+        const res = await fetch("/friends.json");
+        const data = await res.json();
+
+        setFriends(data);
+      } catch (error) {
+        console.error("Error loading friends:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (
-    <DataContext.Provider value={{ friends }}>
+    <DataContext.Provider value={{ friends, loading }}>
       {children}
     </DataContext.Provider>
   );

@@ -6,7 +6,15 @@ import { FaUserPlus } from "react-icons/fa";
 import FriendsCard from "@/components/FriendsCard";
 
 const HomePage = () => {
-  const { friends } = useContext(DataContext);
+  const { friends, loading } = useContext(DataContext);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <span className="loading loading-dots loading-xl"></span>
+      </div>
+    );
+  }
 
   const total = friends?.length || 0;
   const onTrack = friends?.filter(f => f.status === "on-track").length || 0;
@@ -26,7 +34,7 @@ const HomePage = () => {
           nurture the relationships that matter most.
         </p>
 
-        <button className="btn mt-6 bg-[#244D3F] hover:bg-green-800 text-white px-5 py-2 rounded-md shadow-md transition flex items-center gap-2 justify-center mx-auto">
+        <button className="mt-6 bg-[#244D3F] hover:bg-green-800 text-white px-5 py-2 rounded-md shadow-md transition flex items-center gap-2 justify-center mx-auto cursor-pointer">
           <FaUserPlus className="text-xl" />
           Add a Friend
         </button>
@@ -55,8 +63,6 @@ const HomePage = () => {
         </div>
 
       </div>
-
-        {/* Friend Section  */}
 
       <div className="mt-16 w-full max-w-6xl">
         <h2 className="text-2xl font-bold text-[#1F2937] mb-6">
