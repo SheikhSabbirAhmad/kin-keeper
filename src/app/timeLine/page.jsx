@@ -12,7 +12,6 @@ const Timeline = () => {
       ? timeline
       : timeline.filter((item) => item.action === filter);
 
-  // Icon function
   const getIcon = (type) => {
     switch (type) {
       case "Call":
@@ -53,7 +52,7 @@ const Timeline = () => {
           {filteredData.map((item) => (
             <div
               key={item.id}
-              className="flex items-center gap-4 bg-white px-4 py-3 rounded-lg"
+              className="flex items-center gap-4 bg-white px-4 py-3 rounded-lg shadow-lg"
             >
               {/* Icon */}
               <div className="text-3xl">

@@ -9,6 +9,8 @@ import { FaBoxArchive } from "react-icons/fa6";
 import { PiChatTextBold, PiPhoneCallBold } from "react-icons/pi";
 import { FiVideo } from "react-icons/fi";
 
+import { toast } from "react-toastify";
+
 const FriendDetails = () => {
   const { id } = useParams();
   const { friends, setTimeline } = useContext(DataContext);
@@ -38,10 +40,18 @@ const FriendDetails = () => {
     };
 
     setTimeline((prev) => [newEntry, ...prev]);
+
+    if (type === "Call") {
+      toast.success(`📞 Called ${name}`);
+    } else if (type === "Text") {
+      toast.success(`💬 Texted ${name}`);
+    } else if (type === "Video") {
+      toast.success(`🎥 Video call with ${name}`);
+    }
   };
 
   return (
-    <div className=" bg-gray-100 p-8 flex justify-center">
+    <div className="bg-gray-100 p-8 flex justify-center">
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-3 gap-6">
 
         {/* Left part */}
@@ -75,15 +85,24 @@ const FriendDetails = () => {
           {/* action buttons */}
           <div className="mt-6 space-y-3">
 
-            <button className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 p-2 rounded-lg text-sm">
+            <button
+              onClick={() => toast("⏰ Snoozed for 2 weeks")}
+              className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 p-2 rounded-lg text-sm"
+            >
               <RiNotificationSnoozeLine /> Snooze 2 Weeks
             </button>
 
-            <button className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 p-2 rounded-lg text-sm">
+            <button
+              onClick={() => toast("📦 Archived")}
+              className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 p-2 rounded-lg text-sm"
+            >
               <FaBoxArchive /> Archive
             </button>
 
-            <button className="w-full flex items-center justify-center gap-2 bg-gray-100 text-red-500 hover:bg-red-100 p-2 rounded-lg text-sm">
+            <button
+              onClick={() => toast.error("❌ Deleted")}
+              className="w-full flex items-center justify-center gap-2 bg-gray-100 text-red-500 hover:bg-red-100 p-2 rounded-lg text-sm"
+            >
               <RiDeleteBinLine /> Delete
             </button>
 
