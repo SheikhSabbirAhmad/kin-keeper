@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌟 KeenKeeper — Keep Your Friendships Alive
 
-## Getting Started
+KeenKeeper is a modern friendship management web application that helps users maintain meaningful relationships by tracking interactions with friends. The app reminds users when it’s time to reconnect and provides an easy way to log calls, texts, and video chats with friends.
 
-First, run the development server:
+This project is built with modern web technologies using **Next.js App Router** and provides a clean, responsive UI across mobile, tablet, and desktop devices.
+
+---
+
+## 🚀 Live Features
+
+- 👫 **Friend Management**
+  - View a list of friends with profile pictures, tags, and contact status
+  - Easily track how many days since you last contacted them
+
+- ⚡ **Quick Check-In**
+  - Instantly log interactions like **Call, Text, or Video**
+  - Automatically adds the interaction to the timeline
+
+- 📜 **Timeline Tracking**
+  - View a history of all your interactions
+  - Filter interactions by **Call, Text, or Video**
+
+- 📊 **Friendship Analytics**
+  - Visualize communication habits with a **Recharts Pie Chart**
+  - Track how often you call, text, or video chat with friends
+
+- 🔔 **Toast Notifications**
+  - Receive instant feedback when logging interactions
+
+- 📱 **Fully Responsive**
+  - Works smoothly on **mobile, tablet, and desktop**
+
+---
+
+## 🛠️ Technologies Used
+
+- **Next.js (App Router)**
+- **React**
+- **Tailwind CSS**
+- **DaisyUI**
+- **Recharts**
+- **React Toastify**
+- **React Icons**
+
+---
+
+## 📂 Project Structure Overview
+
+```
+app/
+ ├── page.js (Home Page)
+ ├── timeline/page.js
+ ├── stats/page.js
+ ├── friends/[id]/page.js
+ ├── not-found.js
+components/
+ ├── Navbar.jsx
+ ├── Banner.jsx
+ ├── FriendsCard.jsx
+ ├── Footer.jsx
+ ├── StatsCards.jsx
+context/
+ ├── DataContext.jsx
+public/
+ ├── friends.json
+```
+
+---
+
+## ⭐ Key Features
+
+### 1️⃣ Smart Friendship Tracking
+Monitor how long it has been since you last contacted a friend and stay connected with meaningful reminders.
+
+### 2️⃣ Quick Interaction Logging
+Log **calls, texts, and video chats** instantly with one click from the friend details page.
+
+### 3️⃣ Visual Friendship Analytics
+View your interaction patterns using **Recharts pie charts** to better understand your communication habits.
+
+---
+
+## 📦 Installation & Setup
+
+Clone the repository:
+
+```bash
+git clone https://github.com/SheikhSabbirAhmad/keenkeeper.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd keenkeeper
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open in browser:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📸 Screens Included
 
-To learn more about Next.js, take a look at the following resources:
+- Home Page
+- Friend Details Page
+- Timeline Page
+- Analytics Page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👨‍💻 Author
 
-## Deploy on Vercel
+**Sheikh Sabbir Ahmad**  
+CSE Student | Full Stack Web Developer
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📜 License
+
+This project is created for educational purposes.
