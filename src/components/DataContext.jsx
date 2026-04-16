@@ -8,7 +8,6 @@ export const DataProvider = ({ children }) => {
   const [friends, setFriends] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ timeline state
   const [timeline, setTimeline] = useState([]);
 
   useEffect(() => {

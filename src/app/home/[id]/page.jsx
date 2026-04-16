@@ -86,21 +86,21 @@ const FriendDetails = () => {
           <div className="mt-6 space-y-3">
 
             <button
-              onClick={() => toast("⏰ Snoozed for 2 weeks")}
+              onClick={() => toast.info("Snoozed for 2 weeks")}
               className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 p-2 rounded-lg text-sm"
             >
               <RiNotificationSnoozeLine /> Snooze 2 Weeks
             </button>
 
             <button
-              onClick={() => toast("📦 Archived")}
+              onClick={() => toast.success("Archived")}
               className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 p-2 rounded-lg text-sm"
             >
               <FaBoxArchive /> Archive
             </button>
 
             <button
-              onClick={() => toast.error("❌ Deleted")}
+              onClick={() => toast.error("Deleted")}
               className="w-full flex items-center justify-center gap-2 bg-gray-100 text-red-500 hover:bg-red-100 p-2 rounded-lg text-sm"
             >
               <RiDeleteBinLine /> Delete

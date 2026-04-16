@@ -9,15 +9,12 @@ const Footer = () => {
              <footer className="bg-[#244D3F] text-center pt-20 pb-10 text-white">
       <div className="max-w-5xl mx-auto">
         
-        {/* Title */}
         <h2 className="text-5xl font-bold mb-4">Keen<span className='font-semibold'>Keeper</span></h2>
 
-        {/* Subtitle */}
         <p className="text-gray-300 mb-8">
           Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
         </p>
 
-        {/* Social Links */}
         <div className="mb-10">
           <p className="mb-4 text-lg text-gray-100 font-semibold">Social Links</p>
           <div className="flex justify-center gap-4">
@@ -43,7 +40,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="border-t border-gray-500/30 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-300 gap-4">
           
           <p>© {new Date().getFullYear()} KeenKeeper. All rights reserved.</p>
