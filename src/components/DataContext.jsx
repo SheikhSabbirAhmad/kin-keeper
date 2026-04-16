@@ -8,14 +8,15 @@ export const DataProvider = ({ children }) => {
   const [friends, setFriends] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // ✅ timeline state
+  const [timeline, setTimeline] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-
         const res = await fetch("/friends.json");
         const data = await res.json();
-
         setFriends(data);
       } catch (error) {
         console.error("Error loading friends:", error);
@@ -28,7 +29,14 @@ export const DataProvider = ({ children }) => {
   }, []);
 
   return (
-    <DataContext.Provider value={{ friends, loading }}>
+    <DataContext.Provider
+      value={{
+        friends,
+        loading,
+        timeline,
+        setTimeline,
+      }}
+    >
       {children}
     </DataContext.Provider>
   );

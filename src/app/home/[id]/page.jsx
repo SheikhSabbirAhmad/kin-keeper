@@ -6,12 +6,12 @@ import { DataContext } from "@/components/DataContext";
 import Image from "next/image";
 import { RiDeleteBinLine, RiNotificationSnoozeLine } from "react-icons/ri";
 import { FaBoxArchive } from "react-icons/fa6";
-import { PiChatTextBold, PiPhoneCallBold, } from "react-icons/pi";
+import { PiChatTextBold, PiPhoneCallBold } from "react-icons/pi";
 import { FiVideo } from "react-icons/fi";
 
 const FriendDetails = () => {
   const { id } = useParams();
-  const { friends } = useContext(DataContext);
+  const { friends, setTimeline } = useContext(DataContext);
 
   const friend = friends.find((f) => f.id === parseInt(id));
 
@@ -28,6 +28,17 @@ const FriendDetails = () => {
     days_since_contact,
     next_due_date,
   } = friend;
+
+  const handleAction = (type) => {
+    const newEntry = {
+      id: Date.now(),
+      friendName: name,
+      action: type,
+      time: new Date().toLocaleString(),
+    };
+
+    setTimeline((prev) => [newEntry, ...prev]);
+  };
 
   return (
     <div className=" bg-gray-100 p-8 flex justify-center">
@@ -64,16 +75,16 @@ const FriendDetails = () => {
           {/* action buttons */}
           <div className="mt-6 space-y-3">
 
-            <button className="w-full flex items-center text-[#1F2937] font-semibold justify-center gap-2 bg-gray-100 hover:bg-gray-200 transition p-2 rounded-lg text-sm cursor-pointer">
-              <RiNotificationSnoozeLine className="text-lg"/>Snooze 2 Weeks
+            <button className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 p-2 rounded-lg text-sm">
+              <RiNotificationSnoozeLine /> Snooze 2 Weeks
             </button>
 
-            <button className="w-full flex items-center text-[#1F2937] font-semibold justify-center gap-2 bg-gray-100 hover:bg-gray-200 transition p-2 rounded-lg text-sm cursor-pointer">
-              <FaBoxArchive className="text-sm"/>Archive
+            <button className="w-full flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 p-2 rounded-lg text-sm">
+              <FaBoxArchive /> Archive
             </button>
 
-            <button className="w-full flex items-center justify-center gap-2 bg-gray-100 text-[#EF4444] font-semibold hover:bg-red-100 transition p-2 rounded-lg text-sm cursor-pointer">
-              <RiDeleteBinLine className="text-lg"/> Delete
+            <button className="w-full flex items-center justify-center gap-2 bg-gray-100 text-red-500 hover:bg-red-100 p-2 rounded-lg text-sm">
+              <RiDeleteBinLine /> Delete
             </button>
 
           </div>
@@ -88,56 +99,81 @@ const FriendDetails = () => {
               <h2 className="text-2xl font-bold text-[#244D3F]">
                 {days_since_contact}
               </h2>
-              <p className="text-sm text-gray-500 font-semibold">Days Since Contact</p>
+              <p className="text-sm text-gray-500 font-semibold">
+                Days Since Contact
+              </p>
             </div>
 
             <div className="bg-white rounded-2xl p-5 text-center shadow-sm">
               <h2 className="text-2xl font-bold text-[#244D3F]">
                 {goal}
               </h2>
-              <p className="text-sm text-gray-500 font-semibold">Goal (Days)</p>
+              <p className="text-sm text-gray-500 font-semibold">
+                Goal (Days)
+              </p>
             </div>
 
             <div className="bg-white rounded-2xl p-5 text-center shadow-sm">
               <h2 className="text-2xl font-bold text-[#244D3F]">
                 {next_due_date}
               </h2>
-              <p className="text-sm text-gray-500 font-semibold">Next Due</p>
+              <p className="text-sm text-gray-500 font-semibold">
+                Next Due
+              </p>
             </div>
 
           </div>
 
           <div className="bg-white rounded-2xl p-5 shadow-sm flex justify-between items-center">
             <div>
-              <h3 className="font-bold text-lg text-[#244D3F]">Relationship Goal</h3>
+              <h3 className="font-bold text-lg text-[#244D3F]">
+                Relationship Goal
+              </h3>
               <p className="text-sm font-semibold text-gray-500 mt-1">
                 Connect every {goal} days
               </p>
             </div>
 
-            <button className="px-4 py-2 text-sm font-bold bg-gray-100 rounded-lg hover:bg-gray-300 cursor-pointer">
+            <button className="px-4 py-2 text-sm font-bold bg-gray-100 rounded-lg hover:bg-gray-300">
               Edit
             </button>
           </div>
 
           <div className="bg-white rounded-2xl p-5 shadow-sm">
-            <h3 className="font-bold text-lg text-[#244D3F] mb-4">Quick Check-In</h3>
+            <h3 className="font-bold text-lg text-[#244D3F] mb-4">
+              Quick Check-In
+            </h3>
 
             <div className="grid grid-cols-3 gap-4">
 
-              <button className="bg-gray-100 rounded-xl p-4 flex flex-col items-center gap-2 hover:shadow-xl hover:-translate-y-2 transition duration-300 cursor-pointer">
+              <button
+                onClick={() => handleAction("Call")}
+                className="bg-gray-100 rounded-xl p-4 flex flex-col items-center gap-2 hover:shadow-xl hover:-translate-y-2 transition cursor-pointer"
+              >
                 <PiPhoneCallBold className="text-3xl" />
-                <span className="font-bold text-lg text-[#244D3F]">Call</span>
+                <span className="font-bold text-lg text-[#244D3F]">
+                  Call
+                </span>
               </button>
 
-              <button className="bg-gray-100 hover:shadow-xl hover:-translate-y-2 transition duration-300 cursor-pointer rounded-xl p-4 flex flex-col items-center gap-2">
+              <button
+                onClick={() => handleAction("Text")}
+                className="bg-gray-100 rounded-xl p-4 flex flex-col items-center gap-2 hover:shadow-xl hover:-translate-y-2 transition cursor-pointer"
+              >
                 <PiChatTextBold className="text-3xl" />
-                <span className="font-bold text-lg text-[#244D3F]">Text</span>
+                <span className="font-bold text-lg text-[#244D3F]">
+                  Text
+                </span>
               </button>
 
-              <button className="bg-gray-100 hover:shadow-xl hover:-translate-y-2 transition duration-300 cursor-pointer rounded-xl p-4 flex flex-col items-center gap-2">
+              <button
+                onClick={() => handleAction("Video")}
+                className="bg-gray-100 rounded-xl p-4 flex flex-col items-center gap-2 hover:shadow-xl hover:-translate-y-2 transition cursor-pointer"
+              >
                 <FiVideo className="text-3xl" />
-                <span className="font-bold text-lg text-[#244D3F]">Video</span>
+                <span className="font-bold text-lg text-[#244D3F]">
+                  Video
+                </span>
               </button>
 
             </div>
